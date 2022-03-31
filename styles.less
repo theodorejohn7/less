@@ -1,0 +1,516 @@
+// // Variables
+// @link-color:        #428bca; // sea blue
+// @link-color-hover:  darken(@link-color, 10%);
+
+// // Usage
+// a,
+// .link {
+//   color: @link-color;
+// }
+// a:hover {
+//   color: @link-color-hover;
+// }
+// .widget {
+//   color: #fff;
+//   background: @link-color;
+// }
+
+// // Variables
+// @my-selector: banne1r;
+
+// // Usage
+// .@{my-selector} {
+//   font-weight: bold;
+//   line-height: 40px;
+//   margin: 0 auto;
+// }
+
+// // Variables
+// @images: "../img";
+
+// // Usage
+// body {
+//   color: #444;
+//   background: url("@{images}/white-sand.png");
+// }
+
+
+// // lazy evaluation can declare a variable after we use it
+// //the variable declared second will be used
+
+// .lazy-eval {
+//     width: @var;
+
+// @var:9%;
+//   }
+  
+//   @var: @a;
+//   @a: 99%;
+
+
+//   a {
+//     color: blue;
+//     &:hover {
+//       color: green;
+//     }
+//   }
+
+
+//   .button {
+//       color: blue;
+//     &-ok {
+//       background-image: url("ok.png");
+//     }
+//     &-cancel {
+//       background-image: url("cancel.png");
+//     }
+  
+//     &-custom {
+//       background-image: url("custom.png");
+//     }
+//   }
+
+
+//   .grand {
+//     .parent {
+//       & > & {
+//         color: red;
+//       }
+  
+//       & & {
+//         color: green;
+//       }
+  
+//       &{
+//           color:pink;
+//       }
+//       &,& {
+//         color: blue;
+//       }
+  
+//       &, &ish {
+//         color: cyan;
+//       }
+//     }
+//   }
+
+// //Combinational Explosion
+// p, a, ul, li {
+//     border-top: 2px dotted #366;
+//     & + & {
+//       border-top: 0;
+//     }
+//   }
+
+
+//   nav ul {
+//     &:extend(.inline);
+//     background: blue;
+//   }
+
+//   .inline {
+//     color: red;
+//   }
+
+
+//   .a:extend(.b) {}
+
+// // the above block does the same thing as the below block
+// .a {
+//   &:extend(.c);
+// }
+// .b{
+//     color:magenta;
+// }
+// .c{
+//     color:aqua;
+// }
+// #dummy{
+// color:blue;
+// }
+
+// .bucket {
+//     tr { // nested ruleset with target selector
+//       color: blue;
+//     }
+//   }
+// //   .some-class:extend(.bucket tr) {} // nested ruleset is recognized
+
+//   .some-class:extend(.bucket  tr ) {} // nested ruleset is recognized
+
+
+//   .current{
+//       color:pink;
+//   }
+
+
+//   .a:extend(.b) {
+//       color: purple;
+//   }
+
+//   .b{
+//       color:pink;
+//   }
+
+
+
+//   .a.b.test,
+// .test.c {
+//   color: orange;
+// }
+// .test {
+//   &:hover {
+//     color: green;
+//   }
+// }
+
+// .replacement:extend(.test all) {}
+
+
+// .a, #b {
+//     color: red;
+//   }
+//   .mixin-class {
+//     .a();
+//   }
+//   .mixin-id {
+//     #b();
+//   }
+
+
+//   .CLEAR{
+//       color: navy;
+//   }
+//     .my-mixin {
+//         color: black;
+//       }
+//       .my-other-mixin() {
+//         background: white;
+//       }
+//       .class {
+//         .my-mixin();
+//         .my-other-mixin();
+//       }
+  
+
+//       .my-hover-mixin() {
+//         &:hover {
+//           border: 1px solid red;
+//         }
+//       }
+//       button {
+//         .my-hover-mixin();
+//       }
+
+// #mar1901{
+//     color: black;
+// }
+
+    //   #outer() {
+    //     .inner {
+    //       color: red;
+    //     }
+    //   }
+      
+    //   .c {
+    //     #outer.inner();
+    //   }
+
+
+    // .foo (@bg: #f5f5f5; @color: #900) {
+    //     background: @bg;
+    //     color: @color;
+    //   }
+    //   .unimportant {
+    //     .foo();
+    //   }
+    //   .important {
+    //     .foo() !important;
+    //   }
+
+    // .border-radius(@radius) {
+    //     -webkit-border-radius: @radius;
+    //        -moz-border-radius: @radius;
+    //             border-radius: @radius;
+    //   }
+
+    //   .a{
+    //       .border-radius(12px);
+    //   }
+
+
+    // .border-radius(@radius: 5px) {
+    //     -webkit-border-radius: @radius;
+    //        -moz-border-radius: @radius;
+    //             border-radius: @radius;
+    //   }
+
+    //   #header {
+    //     .border-radius(20%);
+    //   }
+
+
+
+
+    // .wrap(@bg) {
+    //     text-wrap: wrap;
+    //     white-space: -moz-pre-wrap;
+    //     white-space: pre-wrap;
+    //     word-wrap: break-word;
+    //     color:@bg;
+    //   }
+      
+    //   pre { .wrap(1) }
+
+
+    // .mixin(@color) {
+    //     color-1: @color;
+    //   }
+    //   .mixin(@color, @padding: 2) {
+    //     color-2: @color;
+    //     padding-2: @padding;
+    //   }
+    //   .mixin(@color, @padding, @margin: 2) {
+    //     color-3: @color;
+    //     padding-3: @padding;
+    //     margin: @margin @margin @margin @margin;
+    //   }
+    //   .some .selector div {
+    //     .mixin(#008000);
+    //   }
+
+
+    //   .some1 .selector1 div1 {
+    //     .mixin(#008000, 20px);
+    //   }
+
+
+    // .mixin(@color: black; @margin: 10px; @padding: 20px) {
+    //     color: @color;
+    //     margin: @margin;
+    //     padding: @padding;
+    //   }
+    //   .class1 {
+    //     .mixin(@margin: 20px; @color: #33acfe);
+    //   }
+    //   .class2 {
+    //     .mixin(#efca44; @padding: 40px);
+    //   }
+
+
+//     .mixin(dark, @color) {
+//         color: darken(@color, 10%);
+//       }
+//       .mixin(light, @color) {
+//         color: lighten(@color, 10%);
+//       }
+//       .mixin(@_, @color) {
+//         display: block;
+//       }
+
+
+//       @switch: dark;
+
+// .class {
+//   .mixin(@switch, #888);
+// }
+
+
+// .average(@x, @y) {
+//     @result: ((@x + @y) / 2);
+//   }
+  
+//   div {
+//     // call a mixin and look up its "@result" value
+//     padding: .average(16px, 50px)[@result];
+//   }
+
+  // customize.less
+//   @import "library";
+//   #library() {
+//     .mixin() {
+//       prop: bar;
+//     }
+//   }
+  
+//   .box {
+//     my-value: #library.mixin[prop];
+//   }
+
+// .average(@x, @y) {
+//     @result: ((@x + @y) / 2);
+//   }
+  
+//   div {
+//     // call a mixin and look up its final value
+//     padding: .average(16px, 50px)[];
+//   }
+
+
+// @dr: {
+//     value: foo;
+//   }
+//   .box {
+//     my-value: @dr[];
+//   }
+
+
+// .mixin() {
+//     @size: in-mixin;
+//     @definedOnlyInMixin: in-m1ixin;
+//   }
+  
+//   .class {
+//     margin: @size @definedOnlyInMixin;
+//     .mixin();
+//   }
+  
+//   @size: globaly-defined-value; // callers parent scope - no protection
+
+
+// .unlock(@value) { // outer mixin
+//     .doSomething() { // nested mixin
+//       declaration: @value;
+//     }
+//   }
+  
+//   #namespace {
+//     .unlock(5); // unlock doSomething mixin
+//     .doSomething(); //nested mixin was copied here and is usable
+//   }
+
+
+// .loop(@counter) when (@counter > 0) {
+//     .loop((@counter - 1));    // next iteration
+//     width: (10px * @counter); // code for each iteration
+//   }
+  
+//   div {
+//     .loop(5); // launch the loop
+//   }
+
+// .generate-columns(4);
+
+// .generate-columns(@n, @i: 1) when (@i =< @n) {
+//   .column-@{i} {
+//     width: (@i * 100% / @n);
+//   }
+//   .generate-columns(@n, (@i + 01));
+// }
+
+
+// .mixin (@a) when (lightness(@a) >= 50%) {
+//     font-size: 14px;
+//  }
+ 
+//  .mixin (@a) when (lightness(@a) < 50%) {
+//     font-size: 16px;
+//  }
+ 
+//  .mixin (@a) {
+//     color: @a;
+//  }
+ 
+//  .class1 {
+//     .mixin(#FF0000)
+//  }
+ 
+//  .class2 {
+//     .mixin(#555)
+//  }
+
+
+// button when (@my-option = true) {
+//     color: white;
+//   }
+
+//   & when (@my-option = true) {
+//     button {
+//       color: white;
+//     }
+//     a {
+//       color: blue;
+//     }
+//   }
+
+//   @dr: if(@my-option = true, {
+//     button {
+//       color: white;
+//     }
+//     a {
+//       color: blue;
+//     }
+//   });
+//   @dr();
+
+
+// // declare detached ruleset
+// @detached-ruleset: { background: red; }; // semi-colon is optional in 3.5.0+
+
+// // use detached ruleset
+// .top {
+//     @detached-ruleset(); 
+// }
+
+// .desktop-and-old-ie(@rules) {
+//     @media screen and (min-width: 1200px) { @rules(); }
+//     html.lt-ie9 &                         { @rules(); }
+//   }
+  
+//   header {
+//     background-color: blue;
+  
+//     .desktop-and-old-ie({
+//       background-color: red;
+//     });
+//   }
+
+
+// .header {
+//     .menu {
+//       border-radius: 5px;
+//       .no-borderradius & {
+//         background-image: url('images/button-background.png');
+//       }
+//     }
+//   }
+
+
+// nav ul {
+//     &:extend(.inline);
+//     background: blue;
+//   }
+//   .inline {
+//     color: red;
+//   }
+
+
+// NESTING
+
+// .component {
+//   width: 300px;
+//   @media (min-width: 768px) {
+//     width: 600px;
+//     @media  (min-resolution: 192dpi) {
+//       background-image: url(/img/retina2x.png);
+//     }
+//   }
+//   @media (min-width: 1280px) {
+//     width: 800px;
+//   }
+// }
+
+
+@min768: (min-width: 768px);
+.element {
+  @media @min768 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+
+
